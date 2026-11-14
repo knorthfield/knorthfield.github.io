@@ -4,109 +4,206 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Apps by knorthfield</title>
-<meta name="description" content="Open source Mac and iPhone apps by knorthfield.">
+<meta name="description" content="Small, focused apps for Mac and iPhone. Free and open source.">
 <style>
   :root {
     color-scheme: light dark;
-    --background: #ffffff;
+    --background: #f5f5f7;
+    --card: #ffffff;
     --text: #1d1d1f;
     --muted: #6e6e73;
     --line: #d2d2d7;
-    --link: #0066cc;
+    --accent: #0071e3;
+    --accent-text: #ffffff;
+    --hero-glow: #dfe9ff;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --background: #111113;
+      --background: #000000;
+      --card: #1c1c1e;
       --text: #f5f5f7;
       --muted: #a1a1a6;
       --line: #38383d;
-      --link: #4da3ff;
+      --accent: #2997ff;
+      --accent-text: #000000;
+      --hero-glow: #14213d;
     }
+  }
+  * {
+    box-sizing: border-box;
   }
   body {
     margin: 0;
-    padding: 48px 16px;
     background: var(--background);
     color: var(--text);
     font: 17px/1.5 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
   }
-  main {
-    max-width: 640px;
-    margin: 0 auto;
-  }
-  h1 {
-    margin: 0 0 4px;
-    font-size: 34px;
-    line-height: 1.2;
-  }
-  h2 {
-    margin: 40px 0 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--line);
-    color: var(--muted);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-  p {
-    margin: 0;
-    color: var(--muted);
-  }
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  li {
-    padding: 16px 0;
-    border-bottom: 1px solid var(--line);
-  }
   a {
-    color: var(--link);
+    color: var(--accent);
     text-decoration: none;
   }
-  a:hover {
-    text-decoration: underline;
+  .hero {
+    padding: 96px 16px 72px;
+    background: radial-gradient(ellipse at top, var(--hero-glow), var(--background) 70%);
+    text-align: center;
   }
-  li a {
-    font-size: 20px;
+  .hero h1 {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: clamp(36px, 7vw, 64px);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+  .hero p {
+    margin: 20px 0 0;
+    color: var(--muted);
+    font-size: clamp(19px, 2.5vw, 24px);
+  }
+  .hero-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .hero-icons img {
+    width: 72px;
+    height: 72px;
+  }
+  .ios-icon {
+    border-radius: 22.5%;
+  }
+  main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 16px 48px;
+  }
+  h2 {
+    margin: 48px 0 20px;
+    font-size: 28px;
+    letter-spacing: -0.01em;
+  }
+  .apps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .app {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px;
+    border-radius: 24px;
+    background: var(--card);
+  }
+  .app img {
+    width: 96px;
+    height: 96px;
+  }
+  .app h3 {
+    margin: 16px 0 4px;
+    font-size: 24px;
+  }
+  .app p {
+    flex: 1;
+    margin: 0 0 24px;
+    color: var(--muted);
+  }
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .button {
+    padding: 9px 18px;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    font-size: 15px;
     font-weight: 600;
+  }
+  .button.primary {
+    background: var(--accent);
+    color: var(--accent-text);
+  }
+  .button:hover {
+    opacity: 0.8;
+  }
+  footer {
+    padding: 32px 16px 48px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
   }
 </style>
 </head>
 <body>
-<main>
-  <h1>Apps</h1>
-  <p>Open source apps by <a href="https://github.com/knorthfield">knorthfield</a>.</p>
+<header class="hero">
+  <h1>Small, focused apps for Mac and iPhone.</h1>
+  <p>Free and open source. Made by knorthfield.</p>
+  <div class="hero-icons">
+    <img src="icons/napkin.png" alt="">
+    <img src="icons/clerk.png" alt="">
+    <img src="icons/stenographer.png" alt="">
+    <img src="icons/nano-buddha.png" alt="" class="ios-icon">
+    <img src="icons/skullset.png" alt="" class="ios-icon">
+  </div>
+</header>
 
+<main>
   <h2>Mac</h2>
-  <ul>
-    <li>
-      <a href="https://github.com/knorthfield/napkin">Napkin</a>
+  <div class="apps">
+    <article class="app">
+      <img src="icons/napkin.png" alt="Napkin icon">
+      <h3>Napkin</h3>
       <p>A calculator in a notepad: write calculations in numbers and words, with units, currencies, dates and Markdown notes.</p>
-    </li>
-    <li>
-      <a href="https://github.com/knorthfield/clerk">Clerk</a>
+      <div class="buttons">
+        <a class="button" href="https://github.com/knorthfield/napkin">View on GitHub</a>
+      </div>
+    </article>
+    <article class="app">
+      <img src="icons/clerk.png" alt="Clerk icon">
+      <h3>Clerk</h3>
       <p>Meeting note taker and coach for the menu bar: live transcript, speakers, talking points and Markdown notes, all on your Mac.</p>
-    </li>
-    <li>
-      <a href="https://github.com/knorthfield/stenographer">Stenographer</a>
+      <div class="buttons">
+        <a class="button" href="https://github.com/knorthfield/clerk">View on GitHub</a>
+      </div>
+    </article>
+    <article class="app">
+      <img src="icons/stenographer.png" alt="Stenographer icon">
+      <h3>Stenographer</h3>
       <p>Dead simple dictation for the menu bar: hold right Option, speak, release.</p>
-    </li>
-  </ul>
+      <div class="buttons">
+        <a class="button" href="https://github.com/knorthfield/stenographer">View on GitHub</a>
+      </div>
+    </article>
+  </div>
 
   <h2>iPhone</h2>
-  <ul>
-    <li>
-      <a href="https://github.com/knorthfield/nano-buddha">Nano Buddha</a>
+  <div class="apps">
+    <article class="app">
+      <img src="icons/nano-buddha.png" alt="Nano Buddha icon" class="ios-icon">
+      <h3>Nano Buddha</h3>
       <p>Meditation timer that quietly lengthens your sits.</p>
-    </li>
-    <li>
-      <a href="https://github.com/knorthfield/skullset">Skullset</a>
+      <div class="buttons">
+        <a class="button primary" href="https://apps.apple.com/app/id6824602807">Download on the App Store</a>
+        <a class="button" href="https://github.com/knorthfield/nano-buddha">GitHub</a>
+      </div>
+    </article>
+    <article class="app">
+      <img src="icons/skullset.png" alt="Skullset icon" class="ios-icon">
+      <h3>Skullset</h3>
       <p>A simple native tracker for Greyskull LP (phrakture's variant).</p>
-    </li>
-  </ul>
+      <div class="buttons">
+        <a class="button primary" href="https://apps.apple.com/app/id6819404778">Download on the App Store</a>
+        <a class="button" href="https://github.com/knorthfield/skullset">GitHub</a>
+      </div>
+    </article>
+  </div>
 </main>
+
+<footer>
+  More on <a href="https://github.com/knorthfield">GitHub</a>.
+</footer>
 </body>
 </html>
